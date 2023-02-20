@@ -22,16 +22,24 @@
 This is the GNU Radio ADSBOUT module. Place your Python package
 description here (python/__init__.py).
 '''
+from __future__ import unicode_literals
+
+# GNU Radio 3.8 is compatible with both Python 2 and 3,
+# which raise different exceptions if a module is not found.
+try:
+    module_not_found_error = ModuleNotFoundError
+except NameError:
+    module_not_found_error = ImportError
 
 # import swig generated symbols into the adsbout namespace
 try:
-	# this might fail if the module is python-only
-	from adsbout_swig import *
-except ImportError:
-	pass
+    # this might fail if the module is python-only
+    from .adsbout_swig import *
+except module_not_found_error:
+    pass
 
 # import any pure python here
-from adsb_position_source import adsb_position_source
-from adsb_Concentrator import adsb_Concentrator
-from adsb_ident_source import adsb_ident_source
+from .adsb_Concentrator import adsb_Concentrator
+from .adsb_position_source import adsb_position_source
+from .adsb_ident_source import adsb_ident_source
 #

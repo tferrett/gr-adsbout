@@ -1,0 +1,75 @@
+id: adsbout_adsb_position_source
+label: adsb_position_source
+category: '[adsbout]'
+
+templates:
+  imports: import adsbout
+  make: adsbout.adsb_position_source(${capability}, ${icao}, ${typecode}, ${surveillancestatus}, ${nicsupplementb}, ${altitude}, ${time}, ${latitude}, ${longitude}, ${surface}, ${intermessagegap})
+
+#  Make one 'parameters' list entry for every parameter you want settable from the GUI.
+#     Keys include:
+#     * id (makes the value accessible as keyname, e.g. in the make entry)
+#     * label (label shown in the GUI)
+#     * dtype (e.g. int, float, complex, byte, short, xxx_vector, ...)
+#     * default
+parameters:
+- id: intermessagegap
+  label: intermessagegap
+  dtype: int
+  default: 99564
+- id: capability
+  label: capability
+  dtype: int
+  default: 5
+- id: icao
+  label: icao
+  dtype: int
+  default: 0x666888
+- id: typecode
+  label: typecode
+  dtype: int
+  default: 11
+- id: surveillancestatus
+  label: surveillancestatus 
+  dtype: int
+  default: 0
+- id: nicsupplementb
+  label: nicsupplementb
+  dtype: int
+  default: 0
+- id: altitude
+  label: altidue
+  dtype: float
+  default: 9876.4
+- id: time
+  label: time
+  dtype: int
+  default: 0
+- id: latitude
+  label: latitude
+  dtype: float
+  default: 40.0773267203
+- id: longitude
+  label: longitude
+  dtype: float
+  default: 116.6003801203
+- id: surface
+  label: surface
+  dtype: bool
+  default: False
+  
+#  Make one 'inputs' list entry per input and one 'outputs' list entry per output.
+#  Keys include:
+#      * label (an identifier for the GUI)
+#      * domain (optional - stream or message. Default is stream)
+#      * dtype (e.g. int, float, complex, byte, short, xxx_vector, ...)
+#      * vlen (optional - data stream vector length. Default is 1)
+#      * optional (optional - set to 1 for optional inputs. Default is 0)
+
+outputs:
+- label: out
+  dtype: byte
+
+#  'file_format' specifies the version of the GRC yml format used in the file
+#  and should usually not be changed.
+file_format: 1

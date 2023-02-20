@@ -26,9 +26,9 @@
 #include <gnuradio/attributes.h>
 
 #ifdef gnuradio_adsbout_EXPORTS
-#  define ADSBOUT_API __GR_ATTR_EXPORT
+#define ADSBOUT_API __GR_ATTR_EXPORT
 #else
-#  define ADSBOUT_API __GR_ATTR_IMPORT
+#define ADSBOUT_API __GR_ATTR_IMPORT
 #endif
 
 #endif /* INCLUDED_ADSBOUT_API_H */
