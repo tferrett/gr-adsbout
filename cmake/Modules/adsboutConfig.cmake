@@ -22,9 +22,10 @@ FIND_LIBRARY(
           /usr/local/lib64
           /usr/lib
           /usr/lib64
-)
+          )
+
+include("${CMAKE_CURRENT_LIST_DIR}/adsboutTarget.cmake")
 
 INCLUDE(FindPackageHandleStandardArgs)
 FIND_PACKAGE_HANDLE_STANDARD_ARGS(ADSBOUT DEFAULT_MSG ADSBOUT_LIBRARIES ADSBOUT_INCLUDE_DIRS)
 MARK_AS_ADVANCED(ADSBOUT_LIBRARIES ADSBOUT_INCLUDE_DIRS)
-

@@ -1,28 +1,17 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# 
-# Copyright 2019 leommxj.
-# 
-# This is free software; you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation; either version 3, or (at your option)
-# any later version.
-# 
-# This software is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-# 
-# You should have received a copy of the GNU General Public License
-# along with this software; see the file COPYING.  If not, write to
-# the Free Software Foundation, Inc., 51 Franklin Street,
-# Boston, MA 02110-1301, USA.
-# 
+#
+# Copyright 2023 gr-adsbout author.
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+#
+
 
 import numpy
 from gnuradio import gr
-from adsb_encoder import gen_position
+from .adsb_encoder import gen_position
 import sys
+
 
 class adsb_position_source(gr.sync_block):
     """
@@ -46,6 +35,7 @@ class adsb_position_source(gr.sync_block):
         self.intermessagegap = intermessagegap
         self.data = gen_position(self)
 
+
     def work(self, input_items, output_items):
         out = output_items[0]
         try:
@@ -56,4 +46,3 @@ class adsb_position_source(gr.sync_block):
             self.data = self.data + gen_position(self)
 
         return len(out[:])
-
