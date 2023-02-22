@@ -45,17 +45,26 @@ blocks:
     rotation: 0
     state: enabled
 - name: gain
-  id: variable
+  id: variable_qtgui_range
   parameters:
     comment: ''
-    value: '30'
+    gui_hint: ''
+    label: ''
+    min_len: '200'
+    orient: Qt.Horizontal
+    rangeType: float
+    start: '0'
+    step: '0.5'
+    stop: '30'
+    value: '0'
+    widget: counter_slider
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [8, 256.0]
+    coordinate: [8, 264.0]
     rotation: 0
-    state: enabled
+    state: true
 - name: samp_rate
   id: variable
   parameters:
@@ -74,7 +83,7 @@ blocks:
     affinity: ''
     alias: ''
     comment: ''
-    gap: '99564'
+    gap: '995640'
     maxoutbuf: '0'
     minoutbuf: '0'
     ninputs: '4'
@@ -155,7 +164,7 @@ blocks:
     altitude: '19876.4'
     capability: '5'
     comment: ''
-    icao: '0x666888'
+    icao: '0x666777'
     intermessagegap: '99564'
     latitude: '40.0773267201'
     longitude: '116.6003801201'
@@ -478,7 +487,7 @@ blocks:
     start_time: '-1.0'
     stream_args: ''
     stream_chans: '[]'
-    sync: sync
+    sync: none
     time_source0: ''
     time_source1: ''
     time_source2: ''
